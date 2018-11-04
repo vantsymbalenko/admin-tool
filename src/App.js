@@ -1,34 +1,35 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { configureStore } from 'store/configStore';
+
+//components
+import AddImage from 'containers/AddImage';
+import EditImage from 'containers/EditImage';
+import ListOfImages from 'containers/image-list/ListOfImages';
+import {Header} from "./components/header/Header";
+import {NotFound} from "./components/not-found/NotFound";
+
 import './App.css';
 
+const store = configureStore();
+
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      show : false
-    }
-  }
-
-  isShow = () => {
-    this.setState({
-        show : true
-    });
-  };
-
-  isHide = () => {
-    this.setState({
-        show: false
-    });
-  };
-
   render() {
     return (
-      <div className={"hover"} onMouseOver={this.isShow} onMouseOut={this.isHide}>
-        adasdad
-        <div className={this.state.show ? "show" : "hide"}>
-          this is tooltip
-        </div>
-      </div>
+      <Provider store={store}>
+        <Router>
+          <React.Fragment>
+            <Header/>
+            <Switch>
+                  <Route exact path={"/"} component={ListOfImages}/>
+                  <Route path={"/add"} component={AddImage}/>
+                  <Route path={"/edit/:id"} component={EditImage}/>
+                  <Route component={NotFound} />
+              </Switch>
+          </React.Fragment>
+        </Router>
+      </Provider>
     );
   }
 }
