@@ -4,3 +4,7 @@
 .show{
   display: block;
 }
+.main-content{
+  background-color: #fafafa;
+  flex: 1;
+}

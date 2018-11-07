@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+html,
+body{
+  height: 100%;
+}
 body {
   /*background: #e2e2e2;*/
   margin: 0;
@@ -11,6 +15,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 code {

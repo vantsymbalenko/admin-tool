@@ -1,0 +1,14 @@
+.add-image-container{
+    display: flex;
+    flex-direction: row;
+}
+.preview-image{
+    padding: 20px;
+}
+.preview-image-image{
+    box-shadow: inset 0 0 0 2px gray;
+    border-radius: 2px;
+}
+.add-image-settings{
+    padding: 20px;
+}

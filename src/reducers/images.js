@@ -15,7 +15,7 @@ const INTIAL_STATE = {
         },
         4 : {
             image: require("../assets/4.JPG")
-        },
+        }
     }
 };
 

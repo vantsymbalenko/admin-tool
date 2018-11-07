@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { configureStore } from 'store/configStore';
 
 //components
-import AddImage from 'containers/AddImage';
+import AddImage from 'containers/add-image/AddImage';
 import EditImage from 'containers/EditImage';
 import ListOfImages from 'containers/image-list/ListOfImages';
-import {Header} from "./components/header/Header";
-import {NotFound} from "./components/not-found/NotFound";
+import {Header} from "components/header/Header";
+import {NotFound} from "components/not-found/NotFound";
 
 import './App.css';
 
@@ -21,12 +21,14 @@ class App extends Component {
         <Router>
           <React.Fragment>
             <Header/>
-            <Switch>
+              <div  className={"main-content"}>
+                <Switch>
                   <Route exact path={"/"} component={ListOfImages}/>
                   <Route path={"/add"} component={AddImage}/>
                   <Route path={"/edit/:id"} component={EditImage}/>
                   <Route component={NotFound} />
-              </Switch>
+                </Switch>
+              </div>
           </React.Fragment>
         </Router>
       </Provider>
